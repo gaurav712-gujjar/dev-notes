@@ -1,0 +1,82 @@
+name: Daily Dev Note via Groq
+on:
+  schedule:
+    - cron: '30 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate note via Groq + commit
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          DAY=$(date +%u)
+          case $DAY in
+            1) TOPIC="Python — tips, tricks, idiomatic patterns, or stdlib modules" ;;
+            2) TOPIC="scikit-learn or machine learning concepts — model training, evaluation, pipelines" ;;
+            3) TOPIC="data science — pandas, NumPy, EDA, data wrangling, or visualization" ;;
+            4) TOPIC="Flask or web APIs — routing, blueprints, REST design, or deployment" ;;
+            5) TOPIC="algorithmic trading or backtesting — strategies, metrics, or libraries like backtrader" ;;
+            6) TOPIC="ML deployment or MLOps — serving models, Docker, CI/CD, or monitoring" ;;
+            7) TOPIC="open-source contribution, MySQL, or developer productivity tools" ;;
+          esac
+
+          NOTE=$(curl -s https://api.groq.com/openai/v1/chat/completions \
+            -H "Authorization: Bearer $GROQ_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"model\": \"llama-3.1-8b-instant\",
+              \"messages\": [
+                {
+                  \"role\": \"system\",
+                  \"content\": \"You are a developer writing detailed daily learning notes. Use plain text only. No markdown, no asterisks, no bullet symbols. Use ALL CAPS for section headings. Leave a blank line between sections.\"
+                },
+                {
+                  \"role\": \"user\",
+                  \"content\": \"Write a detailed developer learning note about: ${TOPIC}. Structure it with these exact sections:\n\nDATE: (today)\nTOPIC: (topic name)\n\nWHAT I LEARNED TODAY\n(3-4 sentences explaining the core concept in first person, casual tone)\n\nKEY CONCEPT\n(4-5 sentences going deeper into how it works, why it matters)\n\nCODE EXAMPLE\n(a small, realistic 6-10 line code snippet as plain text, no backticks)\n\nINSIGHTS AND NOTES\n(2-3 sentences on gotchas, tips, or interesting observations)\n\nTOMORROW'S GOAL\n(1-2 sentences on what to explore or build next)\n\nFirst person, casual but informative tone. Minimum 25 lines total.\"
+                }
+              ],
+              \"max_tokens\": 600,
+              \"temperature\": 1.0
+            }" | python3 -c "import sys,json; print(json.load(sys.stdin)['choices'][0]['message']['content'])")
+
+          if [ -z "$NOTE" ]; then
+            echo "Empty response from Groq. Skipping commit."
+            exit 0
+          fi
+
+          RAND=$((RANDOM % 900 + 100))
+          DAY_LABEL=$(date +%A)
+          FILENAME="notes/note_$(date +%Y%m%d)_${RAND}.txt"
+          mkdir -p notes
+
+          {
+            echo "========================================"
+            echo "  DAILY DEV NOTE"
+            echo "  Date   : $(date -u '+%d %B %Y')"
+            echo "  Day    : ${DAY_LABEL}"
+            echo "  Topic  : ${TOPIC%%—*}"
+            echo "========================================"
+            echo ""
+            echo "$NOTE"
+            echo ""
+            echo "========================================"
+            echo "  END OF NOTE"
+            echo "========================================"
+          } > "$FILENAME"
+
+          git config user.email "beastboy21718@gmail.com"
+          git config user.name "Akash"
+          git add .
+          git diff --staged --quiet || git commit -m "📝 dev note [$(date +%Y-%m-%d)] ${DAY_LABEL} #${RAND}"
+          git push
