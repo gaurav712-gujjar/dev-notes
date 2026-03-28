@@ -1,0 +1,35 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 28 March 2026
+  Day    : Saturday
+  Topic  : ML deployment or MLOps 
+========================================
+
+DATE: March 28, 2024
+
+TOPIC: ML Deployment and MLOps
+
+what i learned today
+I learned about the process of deploying machine learning models, which is commonly referred to as MLOps. It involves taking a machine learning model that has been trained and tested, and preparing it for use in a production environment. This includes tasks like serving the model, containerizing it with tools like Docker, and setting up continuous integration and continuous deployment (CI/CD) pipelines to automate the process. I also learned about the importance of monitoring the performance of the deployed model to ensure it continues to work correctly.
+
+key concept
+Serving a machine learning model in a production environment typically involves creating a RESTful API that can accept input data from users and return predictions from the model. This is often done using a framework like TensorFlow Serving or AWS SageMaker. Additionally, MLOps involves containerizing the model and its dependencies with Docker, which makes it easier to deploy and manage the model in different environments. The goal of CI/CD pipelines is to automate the testing and deployment of the model, reducing the risk of errors and ensuring that the latest version of the model is always being used. This allows developers to focus on improving the model, rather than worrying about deployment and maintenance.
+
+print("Model loaded successfully")
+model = load_model("path/to/model.h5")
+print("Preparing data for prediction")
+data = prepare_data(input_data)
+print("Making prediction")
+prediction = model.predict(data)
+print("Returning prediction to user")
+return prediction
+
+insights and notes
+One gotcha I encountered was that Docker can be finicky when it comes to environment variables, so it's best to test the container thoroughly before deploying it. Additionally, it's essential to monitor the model's performance in real-time to catch any errors or drift in its predictions.
+
+tomorrow's goal
+I plan to explore the concept of model serving using TensorFlow Serving and experiment with deploying a simple machine learning model to a cloud environment like AWS or Google Cloud. I also want to learn more about monitoring tools like Prometheus and Grafana.
+
+========================================
+  END OF NOTE
+========================================
