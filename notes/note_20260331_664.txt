@@ -1,0 +1,39 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 31 March 2026
+  Day    : Tuesday
+  Topic  : scikit-learn or machine learning concepts 
+========================================
+
+DATE: MARCH 31 2024
+
+TOPIC: SCIKIT-LEARN MACHINE LEARNING CONCEPTS
+
+WHAT I LEARNED TODAY
+I learned how model training and evaluation work in machine learning using scikit-learn. I now understand the importance of both and how they interact with each other to improve model performance. I also discovered the concept of pipelines and how they can help simplify the process of data preprocessing and model selection. It's amazing how scikit-learn makes it so easy to experiment with different models and techniques.
+
+KEY CONCEPT
+A machine learning model is trained on a dataset using scikit-learn's various estimators, which are essentially classes that implement specific algorithms for classification, regression, clustering, and more. Once trained, the model needs to be evaluated on a separate dataset to assess its performance and make sure it's making accurate predictions. Evaluation metrics such as accuracy, precision, and ROC-AUC score provide a measure of how well the model is doing. When it comes to selecting the best model from a list of candidates, cross-validation and grid search come in handy to avoid overfitting and find the optimal parameters for a model.
+
+CODE EXAMPLE
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+
+data = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.2)
+model = LogisticRegression()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+print(accuracy_score(y_test, y_pred))
+
+INSIGHTS AND NOTES
+One thing to keep in mind when using scikit-learn's pipeline is that it needs to be initialized before use. Also, using grid search to find the best model and hyperparameters can be computationally expensive.
+
+TOMORROW'S GOAL
+Tomorrow I plan to delve deeper into the world of ensemble methods and experiment with Random Forest and AdaBoost classifiers. I'm curious to see how combining multiple weak models can lead to stronger, more robust models.
+
+========================================
+  END OF NOTE
+========================================
