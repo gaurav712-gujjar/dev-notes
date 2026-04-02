@@ -1,0 +1,43 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 02 April 2026
+  Day    : Thursday
+  Topic  : Flask or web APIs 
+========================================
+
+DATE: April 2, 2024
+
+TOPIC: Building Scalable and Secure Flask APIs
+
+WHAT I LEARNED TODAY
+
+Today was all about diving into the world of Flask and learning about routing, blueprints, and REST design. I realized that building scalable and secure APIs is no easy feat but with the right tools and knowledge, it's definitely achievable. I explored Flask's routing and blueprint features, which allowed me to organize my code and make it more maintainable. I also gained a better understanding of REST design principles and how to implement them in my API.
+
+KEY CONCEPT
+
+Flask provides a clean and expressive routing system that enables you to map URLs to application views. Blueprints are a powerful tool that allows you to group sets of related routes, templates, and static files into a single module. This makes it easy to reuse code and keep your application organized. When designing a RESTful API, it's essential to follow the principles of resource identification, representation, and manipulation. This means using HTTP methods such as GET, POST, PUT, and DELETE to manipulate resources, and using standard HTTP status codes to indicate the outcome of a request.
+
+from flask import Flask, request, jsonify
+app = Flask(__name__)
+@app.route("/users", methods=["GET"])
+def get_users():
+    users = [{"name": "John"}, {"name": "Jane"}]
+    return jsonify(users)
+@app.route("/users", methods=["POST"])
+def create_user():
+    user = request.get_json()
+    users = [{"name": "John"}, {"name": "Jane"}]
+    users.append(user)
+    return jsonify(user)
+
+INSIGHTS AND NOTES
+
+One thing to keep in mind when using Flask's blueprint feature is that it creates a new application instance, so you'll need to import the blueprint instance and register it with the main application using the register_blueprint method. Another gotcha is to remember to handle errors properly when using RESTful APIs. In Flask, you can use the abort function to raise an HTTP exception and return a specific status code.
+
+TOMORROW'S GOAL
+
+Tomorrow, I'll focus on exploring Flask's deployment options, including using WSGI servers and containerization with Docker. I'll also try to create a simple Flask API with multiple blueprints and test it using a tool like Pytest or Unittest.
+
+========================================
+  END OF NOTE
+========================================
