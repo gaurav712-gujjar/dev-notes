@@ -1,0 +1,48 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 03 April 2026
+  Day    : Friday
+  Topic  : algorithmic trading or backtesting 
+========================================
+
+DATE: April 3, 2024
+TOPIC: Algorithmic Trading and Backtesting
+
+WHAT I LEARNED TODAY 
+I started learning about algorithmic trading today which involves using computer algorithms or formulas to generate trades based on patterns in financial markets. The key idea is to use historical data to test and refine trading strategies, something called backtesting. Backtesting aims to identify profitable patterns, optimize parameters, and simulate expected outcomes before applying them to real markets. It's a crucial step in making data-driven trading decisions.
+
+
+KEY CONCEPT 
+Algorithmic trading combines various techniques like technical analysis, machine learning, and market data analysis to produce trade signals. The process involves specifying a trading strategy, defining metrics like profit factor, drawdown, or maximum consecutive losses, and evaluating performance using libraries like backtrader or Zipline. These metrics provide insight into strategy risk and potential. Successful backtesting involves finding the right balance between risk and profit.
+
+A trading strategy can be defined as a set of rules, such as entering long positions when a stock price crosses above its moving average. The goal is to identify profitable trades while limiting risk.
+
+
+CODE EXAMPLE 
+from backtrader.indicators import MovingAverage
+import backtrader as bt
+
+class CrossSignal(bt.SignalStrategy):
+    params = (('fast_ma', 20), ('slow_ma', 50))
+    def __init__(self):
+        fast_ma = MovingAverage(type=MovingAverage.SMA, period=self.p.fast_ma, plot=True)
+        slow_ma = MovingAverage(type=MovingAverage.SMA, period=self.p.slow_ma, plot=True)
+        self signal = fast_ma > slow_ma
+
+    def notify_buy(self, msg):
+        print(f'Buy at {self.data.close[0]}')
+
+    def notify_sell(self, msg):
+        print(f'Sell at {self.data.close[0]}')
+
+
+INSIGHTS AND NOTES 
+I found that it's essential to keep the strategy rules simple and well-defined to avoid overfitting the data. Furthermore, using libraries like NumPy for numerical operations and Pandas for data manipulation can greatly improve performance in data-heavy applications. Additionally, proper risk management is critical in algorithmic trading, so understanding metrics like drawdown is vital.
+
+
+TOMORROW'S GOAL 
+Tomorrow, I will try to set up a simple backtesting framework in Python using backtrader and run some tests on a basic trading strategy with different parameters to understand the effects on performance and to identify areas for improvement.
+
+========================================
+  END OF NOTE
+========================================
