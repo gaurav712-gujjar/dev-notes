@@ -1,0 +1,40 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 04 April 2026
+  Day    : Saturday
+  Topic  : ML deployment or MLOps 
+========================================
+
+DATE: April 4, 2024
+
+TOPIC: MLOps - Serving Models with Docker and CI/CD
+
+WHAT I LEARNED TODAY
+Today I learned that serving machine learning models can be done efficiently using Docker containers and Continuous Integration/Continuous Deployment (CI/CD) pipelines. This approach ensures that our models are deployed consistently and in a reproducible way. I also learned that Docker provides a lightweight and scalable solution for model deployment. By containerizing our models, we can easily manage and maintain them in production.
+
+KEY CONCEPT
+Serving a machine learning model with Docker involves packaging the model and its dependencies into a Docker image, which can then be deployed to a container runtime environment. This approach provides several benefits, including ease of deployment, scalability, and reliability. A CI/CD pipeline is used to automate the build, test, and deployment of the Docker image, ensuring that the model is always up-to-date and running smoothly. Additionally, monitoring tools can be used to track model performance and identify issues in real-time.
+
+model_container = DockerContainer("ml_model")
+model_container.run()
+
+model_image = build_and_push_docker_image("ml_model")
+
+ci_cd_pipeline = CI_CD_Pipeline("ml_ci_cd")
+ci_cd_pipeline.deploy_model(model_image)
+
+app.run()
+
+ci_cd_pipeline.monitor_model()
+
+CI_CD_Pipeline.run_pipeline()
+
+INSIGHTS AND NOTES
+One gotcha to watch out for is ensuring that the Docker image is properly optimized for production, as a large image can impact performance. Another tip is to use a version control system to track changes to the model and its dependencies.
+
+TOMORROW'S GOAL
+Tomorrow, I plan to explore monitoring tools such as Prometheus and Grafana to track model performance and identify potential issues. I also want to build a CI/CD pipeline using Jenkins and Docker Compose to automate the deployment of a machine learning model.
+
+========================================
+  END OF NOTE
+========================================
