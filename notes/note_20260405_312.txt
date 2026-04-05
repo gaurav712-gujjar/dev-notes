@@ -1,0 +1,45 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 05 April 2026
+  Day    : Sunday
+  Topic  : open-source contribution, MySQL, or developer productivity tools
+========================================
+
+DATE: APRIL 5, 2026
+
+TOPIC: OPEN-SOURCE CONTRIBUTION
+
+WHAT I LEARNED TODAY
+
+I realized today that open-source contribution is more accessible than I thought and there are plenty of projects out there that need help from folks like me. I learned how to create a pull request and follow standard guidelines for contribution. I also started thinking about how my skills can be put to use in the open-source ecosystem. I'm excited to start participating in projects that I'm interested in.
+
+KEY CONCEPT
+
+Open-source contribution is all about giving back to the community by contributing code, documentation, or other valuable assets to projects that are available for free use. The key is to find a project that aligns with your interests and skill set, then follow the guidelines for contribution. Most projects have a workflow that involves forking the repository, making changes, then submitting a pull request. Reviewers will check the code for quality and accuracy before it's merged into the main branch. Some projects also have additional steps like coding challenges or interviews before accepting contributors.
+
+CODE EXAMPLE
+
+# Clone the repository
+git clone https://github.com/user/project.git
+# Create a new branch
+git branch feature/new-feature
+# Make changes and stage them
+git add -u
+# Commit the changes
+git commit -m "Implemented new feature"
+# Push the changes to the remote branch
+git push origin feature/new-feature
+# Create a pull request
+git request-pull origin feature/new-feature
+
+INSIGHTS AND NOTES
+
+One thing I noticed is that it's essential to follow the project's guidelines carefully to avoid any delays in the contribution process. Also, it's crucial to write high-quality commit messages that clearly describe the changes made. Another thing I observed is that many open-source projects are built using Agile methodologies, so contributors need to be comfortable with iterative development and ongoing improvement.
+
+TOMORROW'S GOAL
+
+Tomorrow, I plan to start contributing to a popular open-source project on GitHub by finding a suitable issue to work on, forking the repository, and following the contribution guidelines. I aim to create a solid code snippet that implements the solution to the issue, then submit a clear and concise pull request for review.
+
+========================================
+  END OF NOTE
+========================================
