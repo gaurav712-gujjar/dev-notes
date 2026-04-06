@@ -1,0 +1,38 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 06 April 2026
+  Day    : Monday
+  Topic  : Python 
+========================================
+
+DATE: 06 April 2026
+
+TOPIC: Python Generators
+
+WHAT I LEARNED TODAY
+I learned about using generators in Python to improve performance by creating iterators that compute values on the fly, rather than computing them in advance when the function is called. Generators are really useful when dealing with large datasets or when computing a value requires multiple operations. They also help avoid creating unnecessary lists in memory. Generators can be thought of as special types of iterable objects, like lists or tuples, but they do not store the data in memory.
+
+KEY CONCEPT
+Generators in Python are created using a function with a yield statement instead of a return statement. When a function contains a yield statement, it becomes a generator. Once the function is called and returns control, the generator returns the yielded value, then pauses and remembers the state of the function. When asked for the next value, it picks up where it left off. This process repeats and allows the generator to create a sequence of values. Generators also have the advantage of being memory-efficient, as they do not need to store the values at once like a list would.
+
+CODE EXAMPLE
+def infinite_sequence():
+ y = 0
+ while True:
+  yield y
+  y = y + 1
+
+gen = infinite_sequence()
+print(next(gen))  # prints: 0
+print(next(gen))  # prints: 1
+print(next(gen))  # prints: 2
+
+INSIGHTS AND NOTES
+One thing to watch out for when using generators is that if you forget to include a yield statement, your generator will behave like a normal function, and this could potentially cause unexpected behavior if called multiple times. Additionally, it's a good idea to use the yield from statement when using recursive generators to avoid potential memory leaks.
+
+TOMORROW'S GOAL
+I'll try using generators to generate the Fibonacci sequence to see how they can be used to compute complex sequences in a memory-efficient way. I'm curious to see the code I'll end up coming up with.
+
+========================================
+  END OF NOTE
+========================================
