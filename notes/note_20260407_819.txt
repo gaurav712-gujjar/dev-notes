@@ -1,0 +1,38 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 07 April 2026
+  Day    : Tuesday
+  Topic  : scikit-learn or machine learning concepts 
+========================================
+
+DATE: April 7, 2026
+TOPIC: Scikit-Learn Model Training, Evaluation and Pipelines
+
+WHAT I LEARNED TODAY
+Today I learned about how to train machine learning models with scikit-learn in python, evaluate their performance and use pipelines to streamline this process. I spent most of the day reading about these concepts and trying out examples to get a hands-on feel for them. I'm starting to see the big picture and how all the different components fit together, it's really cool. By the end of the day, I was able to put together a simple example of training a model and evaluating its performance.
+
+KEY CONCEPT
+When it comes to model training, there are several key steps that need to be taken, including splitting the data into training and test sets, choosing a model, training the model, and then evaluating its performance. The train_test_split function in scikit-learn is really useful for doing this data splitting, and it returns two arrays of indices that can be used to split the data. Once the model is trained, we can use metrics like accuracy and precision to evaluate its performance, and we can use classification reports to get a breakdown of how well it's doing for different classes. Pipelines are also really useful for automating this process and saving us from having to repeat all the steps every time we want to train a new model.
+
+CODE EXAMPLE
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
+
+iris = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.2)
+model = LogisticRegression()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+print(accuracy_score(y_test, y_pred))
+
+INSIGHTS AND NOTES
+One thing that took me a while to get used to was the idea of splitting the data into training and test sets, and then using the test set to evaluate the model's performance. It's so easy to get caught up in overfitting or underfitting, but using a test set is a great way to guard against that. Another thing I'm looking to explore next is how to use feature scaling to get the best out of my models, especially when dealing with numerical data.
+
+TOMORROW'S GOAL
+Tomorrow I'm going to try to experiment with feature scaling using the StandardScaler function in scikit-learn, and see how it affects the performance of my model. I also want to explore some of the different types of models that are available in scikit-learn, and see which ones work best for certain types of problems.
+
+========================================
+  END OF NOTE
+========================================
