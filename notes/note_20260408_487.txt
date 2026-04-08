@@ -1,0 +1,39 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 08 April 2026
+  Day    : Wednesday
+  Topic  : data science 
+========================================
+
+DATE: April 8, 2024
+TOPIC: Exploring Data Wrangling with pandas
+
+WHAT I LEARNED TODAY
+
+Today I learned how to properly import and clean a dataset using pandas, a vital step in any data science workflow. I realized that having messy data can lead to incorrect conclusions, so it's crucial to take this step seriously. I now know how to handle missing values and how to correctly convert data types in pandas. This knowledge will help me in my future projects.
+
+KEY CONCEPT
+
+Key to working effectively with data in pandas is understanding how to properly import and manipulate your dataset. One of the most common issues when working with data is handling missing values. Missing value treatment can have a significant impact on the results of data analysis. By using pandas built in functions such as dropna and fillna, I can correctly handle missing values and clean my data. It's also important to be aware of data types and ensure that they are correctly identified as strings, integers, or floats to avoid any errors.
+
+CODE EXAMPLE
+
+import pandas as pd
+df = pd.DataFrame({'Name': ['John', 'Mary', 'David'],
+                   'Age': [27, None, 22],
+                   'Gender': ['Male', 'Female', 'Male']})
+df.head()
+df.dropna(subset=['Age'])
+df.fillna(df.mean(), subset=['Age'])
+
+INSIGHTS AND NOTES
+
+I found that handling missing values and data types can be tricky, but it's essential to get right. A big gotcha is forgetting to reset the index after handling missing values. Also, remember that data types can affect calculations, such as when you're trying to perform mathematical operations on strings.
+
+TOMORROW'S GOAL
+
+Tomorrow, I want to continue learning about how to handle data types in pandas, particularly working with categorical data. I will experiment with converting different data types to understand how it affects my analysis.
+
+========================================
+  END OF NOTE
+========================================
