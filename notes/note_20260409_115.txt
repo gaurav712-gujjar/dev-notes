@@ -1,0 +1,47 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 09 April 2026
+  Day    : Thursday
+  Topic  : Flask or web APIs 
+========================================
+
+DATE: APRIL 9, 2026
+
+TOPIC: FLASK ROUTING AND BLUEPRINTING
+
+WHAT I LEARNED TODAY
+
+today I learned about how to use routing and blueprints in Flask, which is really important for building robust and scalable web APIs. it's basically a way to organize and structure your application by breaking it down into smaller components, called blueprints, and mapping URLs to these components using routes. flask's routing system makes it really easy to define URLs and map them to functions or classes. this makes it easy to add new features or change existing ones without having to rewrite a lot of code.
+
+KEY CONCEPT
+
+in flask, routing is the process of mapping URLs to the corresponding handlers, which are functions or classes that will handle the request. there are two types of routes in flask: regular routes and blueprints. regular routes are used for smaller applications where there's not much structure or organization needed. blueprints, on the other hand, are used in larger applications where you need to break it down into smaller components. a blueprint is essentially a module that defines a set of routes and can be mounted on the application at a particular point.
+
+code example
+
+from flask import Flask
+from flask.blueprints import Blueprint
+
+app = Flask(__name__)
+
+my_blueprint = Blueprint('my_blueprint', __name__)
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    return 'You reached my_blueprint'
+
+my_blueprint.add_url_rule('/', view_func=my_blueprint.index)
+my_blueprint.add_url_rule('/<path:path>', view_func=catch_all)
+
+INSIGHTS AND NOTES
+
+one thing to watch out for is that you need to make sure that the blueprint you're using has the same name as the folder where your blueprint code lives. also, be careful with the order of your routes, because flask will use the first route it finds that matches the URL.
+
+TOMORROW'S GOAL
+
+tomorrow I'll explore how to use Flask-Restful library to design my API following REST design principles, and also work on deploying my Flask application to a cloud platform.
+
+========================================
+  END OF NOTE
+========================================
