@@ -1,0 +1,39 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 10 April 2026
+  Day    : Friday
+  Topic  : algorithmic trading or backtesting 
+========================================
+
+DATE: APRIL 10, 2026
+
+TOPIC: ALGORITHMIC TRADING AND BACKTESTING
+
+WHAT I LEARNED TODAY
+
+I spent the day diving into the world of algorithmic trading and backtesting, and I realized that it's all about creating and testing trading strategies on historical data to see how they would have performed. Backtesting involves using a programming library like backtrader to run the strategy over a period of time and calculate metrics such as profitability and risk. I learned that the goal is to create a strategy that performs well in both up and down markets, with low drawdowns and consistent returns. I'm still getting my head around the importance of setting up the right data and parameters.
+
+KEY CONCEPT
+
+Backtesting is a crucial part of algorithmic trading because it allows traders to test their ideas and strategies in a simulated environment before risking real money. This helps to avoid emotional decisions based on short-term market movements, and instead allows traders to focus on long-term goals and risk management. When it comes to designing a strategy, it's essential to consider metrics such as Sharpe ratio, Sortino ratio, and Drawdown to get a comprehensive picture of its performance. A backtesting library like backtrader handles the heavy lifting, allowing me to focus on developing and refining my strategy.
+
+python create a simple moving average crossover strategy 
+def on_bar(self, bar):
+ if self.mavg1.bar_index > self.mavg2.bar_index:
+  self.buy()
+ else:
+  self.sell()
+ self.mavg1.plot()
+ self.mavg2.plot()
+
+INSIGHTS AND NOTES
+
+One gotcha I encountered is that backtesting requires a deep understanding of the specific markets and assets being traded, as well as the specific strategy being used. It's also essential to regularly review and update the strategy to ensure it remains relevant and effective. Another tip is to keep the strategy as simple as possible, as over-optimization can lead to poor results in live trading.
+
+TOMORROW'S GOAL
+
+I plan to dive deeper into the backtrader library and explore some of its more advanced features, such as event handling and custom indicators. I also hope to start building a more complex strategy that incorporates multiple technical indicators and risk management techniques.
+
+========================================
+  END OF NOTE
+========================================
