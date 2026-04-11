@@ -1,0 +1,44 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 11 April 2026
+  Day    : Saturday
+  Topic  : ML deployment or MLOps 
+========================================
+
+DATE: APRIL 11, 2026
+TOPIC: MLOPS - DEPLOYING ML MODELS WITH DOCKER AND CI/CD
+
+WHAT I LEARNED TODAY
+Today I learned that deploying ml models is not just about serving them to users but also involves ensuring that they perform well and are updated when needed. I dived into the world of MLOps and saw how crucial it is to have tools like Docker and CI/CD to automate the deployment process. This way, we can quickly test changes and roll back bad changes before they affect our users. I also realized that monitoring is another critical component of MLOps.
+
+KEY CONCEPT
+When it comes to deploying ml models, we need to ensure that they are properly containerized using Docker. This creates an isolated environment for our model to run, which makes it easier to deploy and manage across different environments. To further simplify this process, a CI/CD pipeline is essential for automating building, testing, and deployment of our containerized models. This pipeline will catch and fix bugs early on, ensure compliance with our production setup, and deploy the new versions of the model when ready. By automating these tasks, we can speed up our development cycle, reduce errors, and improve overall efficiency.
+
+python deploy model to docker
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+# load iris
+iris = load_iris()
+# prepare training and test data sets
+trainX, testX, trainY, testY = train_test_split(iris.data, iris.target, test_size=0.4)
+# create a DecisionTreeClassifier instance
+clf = DecisionTreeClassifier()
+# train the model on the training data
+clf.fit(trainX, trainY)
+# make predictions
+preds = clf.predict(testX)
+# calculate and display accuracy
+accuracy = accuracy_score(testY, preds)
+print(accuracy)
+
+INSIGHTS AND NOTES
+One thing I found interesting is that when building our containerized model, we need to be mindful of the dependencies and the environment required by our model. This involves carefully managing the build process, dependencies, and configuration files for Docker and our CI/CD pipeline.
+
+TOMORROW'S GOAL
+Tomorrow, I plan to dive deeper into Docker and practice building a containerized model using Python. I will try to create a simple containerized flask application with a basic machine learning model to see how it all comes together.
+
+========================================
+  END OF NOTE
+========================================
