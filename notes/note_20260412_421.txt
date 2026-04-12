@@ -1,0 +1,33 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 12 April 2026
+  Day    : Sunday
+  Topic  : open-source contribution, MySQL, or developer productivity tools
+========================================
+
+DATE: April 12, 2024
+TOPIC: Open-Source Contribution
+
+WHAT I LEARNED TODAY
+I spent the day researching and learning about the process of contributing to open-source projects. It turns out that contributing to open-source can be super rewarding and help you develop skills that are valuable in the industry. I discovered that many open-source projects have a workflow system that makes it easy for new contributors to jump in and help. 
+
+KEY CONCEPT
+The workflow that most open-source projects use is called GitFlow. It's a branching model that helps manage different stages of development, from feature development to bug fixes. The key idea is to create separate branches for different features and release branches that merge into a master branch. This way, even if a feature isn't yet fully complete, it can be pushed to the repository without affecting the live version of the project. The workflow uses several key branches, including master, develop, feature, release, and hotfix. 
+
+CODE EXAMPLE
+git branch feature/new-feature
+cd feature/new-feature
+touch README.md
+git add .
+git commit -m "Initial commit"
+git push origin feature/new-feature
+
+INSIGHTS AND NOTES
+One thing that I found challenging was understanding how to properly create and merge branches between different repositories. It's also important to make sure that you pull the latest changes before you start making changes in your own feature or release branch. Finally, I realized that a big part of contributing to open-source is communication - being clear and concise in your commit messages and making sure that your changes don't break anything else in the project.
+
+TOMORROW'S GOAL
+Next, I'm going to practice using GitFlow by creating a small feature branch in a test project and pushing it to a GitHub repository.
+
+========================================
+  END OF NOTE
+========================================
