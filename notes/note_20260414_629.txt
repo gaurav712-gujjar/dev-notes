@@ -1,0 +1,38 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 14 April 2026
+  Day    : Tuesday
+  Topic  : scikit-learn or machine learning concepts 
+========================================
+
+DATE: April 14, 2024
+TOPIC: scikit-learn or Machine Learning Concept - Model Training, Evaluation, Pipelines
+
+WHAT I LEARNED TODAY
+Today I learned about model training and evaluation using scikit-learn, specifically how to implement and adjust parameters for optimal results. I also learned about the concept of pipelines in machine learning, which allow us to chain multiple estimators together for complex tasks. I gained a better understanding of how to balance overfitting and underfitting by monitoring metrics such as mean squared error (MSE) and R-squared. I started to comprehend the importance of cross-validation and parameter tuning.
+
+KEY CONCEPT
+Model training and evaluation are crucial steps in machine learning, allowing us to assess the performance of our models on unseen data. Scikit-learn provides a variety of tools and functions to streamline this process, including the train_test_split function, which splits our dataset into training and testing sets. We can then use metrics such as MSE and R-squared to evaluate our model's performance on the test set. When dealing with complex tasks, we can utilize pipelines, which compose a series of estimators to achieve the desired outcome. For example, a pipeline might consist of a data scaler followed by a feature selector and then a classifier.
+
+CODE EXAMPLE
+from sklearn.datasets import load_diabetes
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+
+data = load_diabetes()
+X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.2, random_state=42)
+pipeline = Pipeline([('scaler', StandardScaler()), ('regressor', LinearRegression())])
+pipeline.fit(X_train, y_train)
+predictions = pipeline.predict(X_test)
+
+INSIGHTS AND NOTES
+One major gotcha when working with pipelines is that the order of estimators matters, so be mindful of this when chaining different components together. I also realized that scikit-learn offers various parameter tuning tools, including GridSearch and RandomizedSearch, which can be useful when dealing with large hyperparameter spaces. 
+
+TOMORROW'S GOAL
+Tomorrow, I aim to learn more about scikit-learn's cross-validation tools and explore how to apply them to real-world problems. I also plan on experimenting with GridSearch to see how it can be used to tune model parameters.
+
+========================================
+  END OF NOTE
+========================================
