@@ -1,0 +1,43 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 16 April 2026
+  Day    : Thursday
+  Topic  : Flask or web APIs 
+========================================
+
+DATE: 16 April 2026
+
+TOPIC: Flask Routing and Blueprints
+
+WHAT I LEARNED TODAY
+
+Today I learned about the basics of Flask routing and blueprints. It seems like they play a huge role in structuring your web application and defining routes for different endpoints. I was able to set up a basic route with the app.route() function and pass in a function to handle requests to that route. Flask blueprints are also pretty handy for structuring larger applications and avoiding naming conflicts between routes.
+
+KEY CONCEPT
+
+In Flask, routes are basically functions that return an HTTP response when a specific URL pattern is accessed. Flask blueprints allow you to organize these routes into logical groups. The Blueprint object has methods like register_blueprint() to add routes from another blueprint to the main application. A Flask app uses the Flask class and can support multiple blueprints by assigning different prefixes to each blueprint. This can help with scalability when your app is growing.
+
+CODE EXAMPLE
+
+from flask import Flask, request
+app = Flask(__name__)
+@app.route('/myroute')
+def myfunction():
+ return 'Hello from my route!'
+@app.route('/newroute')
+def newfunction():
+ return 'Hello from new route!'
+if __name__ == '__main__':
+ app.run()
+
+INSIGHTS AND NOTES
+
+One gotcha I noticed was that when using multiple blueprints with overlapping route prefixes, some routes may not be discovered unless the Blueprint object is properly registered. Also, if you're using a Blueprint for a specific feature, keep related templates in the same directory as the blueprints to avoid unnecessary imports.
+
+TOMORROW'S GOAL
+
+Tomorrow I plan to explore using Flask-SQLAlchemy for database interactions and setting up a more complex Flask app structure using multiple blueprints.
+
+========================================
+  END OF NOTE
+========================================
