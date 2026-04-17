@@ -1,0 +1,46 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 17 April 2026
+  Day    : Friday
+  Topic  : algorithmic trading or backtesting 
+========================================
+
+DATE: 2024-04-17
+
+TOPIC: Algorithmic Trading or Backtesting
+
+WHAT I LEARNED TODAY
+Today I learned about algorithmic trading or backtesting in the context of trading strategies. It's essentially a way to test and refine trading rules using historical data rather than live market exposure. This approach allows developers and traders to gauge the performance and efficiency of their strategies before deploying them. Backtesting is used to validate or debunk claims made by traders regarding their techniques and assess potential returns.
+
+
+KEY CONCEPT
+Algorithmic trading relies on mathematical models that analyze and react to market data in real-time. Backtesting is a crucial step in this process, as it involves feeding historical data to a model to predict how it would have performed in the past. This allows traders to assess the effectiveness of their strategies, measure their success, and refine their approach to optimize performance metrics. Effective backtesting requires a deep understanding of the trading environment, including market trends, volatility, and trading costs.
+
+
+CODE EXAMPLE
+```python
+from backtrader.feeds import PandasData
+import pandas as pd
+
+data = pd.read_csv('stock_data.csv')
+cerebro = bt.Cerebro()
+
+feed = PandasData(
+    dataname=data,
+    open=data['Open'],
+    close=data['Close'],
+    high=data['High'],
+    low=data['Low']
+)
+cerebro.adddata(feed)
+```
+
+INSIGHTS AND NOTES
+I learned that one of the biggest gotchas in backtesting is data quality. Even small errors or inconsistencies can skew the results and lead to incorrect conclusions. Also, using the right parameters for backtesting, such as the evaluation period and performance metrics, is crucial for obtaining meaningful results.
+
+TOMORROW'S GOAL
+Tomorrow, I plan to explore different performance metrics used in backtesting, such as Sharpe ratio and drawdown, and understand how they are calculated. I also want to implement a simple trading strategy and test its performance using backtesting techniques.
+
+========================================
+  END OF NOTE
+========================================
