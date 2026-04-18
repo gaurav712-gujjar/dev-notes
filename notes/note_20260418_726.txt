@@ -1,0 +1,34 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 18 April 2026
+  Day    : Saturday
+  Topic  : ML deployment or MLOps 
+========================================
+
+DATE: APRIL 18, 2026
+
+TOPIC: MLOPS - DEPLOYING MODELS WITH DOCKER AND CI/CD
+
+WHAT I LEARNED TODAY
+Today I learned about deploying machine learning models with Docker containers and using Continuous Integration/Continuous Deployment (CI/CD) for automating the build and deployment process. It's been a while since I last worked on a project that involved model serving, and I'm glad to be diving back into it. I now have a better understanding of why model serving is crucial in production environments. I also realized how important it is to have a robust CI/CD pipeline in place to automate testing, linting, and deployment of models.
+
+KEY CONCEPT
+When it comes to deploying machine learning models, serving the model is just the first step. To ensure that the model is reliable and efficient, it needs to be containerized and deployed to a cloud-based environment. This is where Docker comes in, as it allows us to package our model and its dependencies into a single container that can be easily deployed and scaled. CI/CD pipelines can then be used to automate the process of building and deploying the container, making it easier to ensure that the model is always up-to-date and running smoothly. Another key concept is monitoring, which involves tracking the performance and accuracy of the model in real-time to identify potential issues and optimize the model.
+
+  model = Sequential()
+  model.add(Dense(64, activation='relu', input_shape=(784,)))
+  model.add(Dense(32, activation='relu'))
+  model.add(Dense(10, activation='softmax'))
+  model.compile(optimizer='adam', loss='sparse_categorical_crossentropy',
+            metrics=['accuracy'])
+  model.fit(X_train, y_train, epochs=10, batch_size=128)
+
+INSIGHTS AND NOTES
+One gotcha I encountered today is that Docker requires a base image, which can be a bit confusing if you're new to it. Additionally, it's essential to use environment variables to set configurations in your model code, rather than hardcoding them, to avoid tight coupling with the environment.
+
+TOMORROW'S GOAL
+Tomorrow, I plan to implement a simple CI/CD pipeline using Jenkins and Docker to automate the deployment of my machine learning model. I want to see how easy it is to create a pipeline that checks my code for errors and then deploys the model to a cloud-based environment.
+
+========================================
+  END OF NOTE
+========================================
