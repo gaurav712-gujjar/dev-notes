@@ -1,0 +1,47 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 19 April 2026
+  Day    : Sunday
+  Topic  : open-source contribution, MySQL, or developer productivity tools
+========================================
+
+DATE: April 19, 2026
+TOPIC: CONTRIBUTING TO OPEN-SOURCE PROJECTS ON GITHUB
+
+WHAT I LEARNED TODAY
+today i learned how to contribute to open-source projects on github and make my first pull request. i discovered that contributing to open-source projects not only helps others but also helps you develop new skills and build your professional network. i chose a popular project to contribute to and created a test branch to make some changes. i was surprised at how easy it was to find and start contributing.
+
+KEY CONCEPT
+when contributing to open-source projects, it's essential to read the contributing guidelines to understand how to make submissions and what format they should be in. once you create a test branch and make changes, you need to add your changes to your test branch using 'git add' and then commit your changes with a meaningful commit message. after that, you can push your changes to your forked repository and submit a pull request to the original repository. it's also a good practice to check for existing bug reports and see if your contribution can be used to solve one of them.
+
+```python
+# clone the repository and navigate to the directory
+git clone https://github.com/user/repository.git
+cd repository
+
+# create a new branch
+git branch new-feature
+git checkout new-feature
+
+# create changes and test them
+changes = []
+with open('test.txt', 'w') as f:
+    f.write('This is a test file.')
+
+# add changes to the branch
+git add test.txt
+git commit -m 'Added test.txt file'
+
+# push changes to forked repository and submit pull request
+git push origin new-feature
+```
+
+INSIGHTS AND NOTES
+one challenge i faced was finding the right project to contribute to with a suitable skill level. also, make sure to follow the coding style and guidelines of the project, and also don't forget to test your changes before submitting the pull request.
+
+TOMORROW'S GOAL
+for tomorrow, i plan to continue exploring and contributing to different open-source projects to gain more experience and learn new skills in contributing to open-source projects.
+
+========================================
+  END OF NOTE
+========================================
