@@ -1,0 +1,46 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 20 April 2026
+  Day    : Monday
+  Topic  : Python 
+========================================
+
+DATE: 20 April 2026
+
+TOPIC: Python Iterator Tools
+
+
+WHAT I LEARNED TODAY
+
+I spent some time today reading about the itertools module and learned how it can be used to simplify some common iterator patterns in Python. I found a good example of how to use chain and compress functions to create a pipeline of operations on lists. These tools can help make the code look cleaner by reducing the need for explicit loops and conditional statements. I think they will be really useful in some of my upcoming projects.
+
+KEY CONCEPT
+
+The itertools module is part of the Python Standard Library, and it contains a lot of useful functions for working with iterators, including chain and compress. Chain takes multiple iterators and combines them into one iterator, while compress takes two iterators and produces items from the first one only when the corresponding item from the second iterator matches a specified value. By using these functions we can easily create pipelines of iterator operations that are more readable and easier to understand than their explicit loop counterparts.
+
+For example, when working with multiple lists and need to access each element at a specific position, you can use itertools zip to align the elements from all lists and then access them as a single iterator. The same is with combining the elements from multiple lists into one.
+
+CODE EXAMPLE
+
+from itertools import chain, compress
+
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+list3 = [7, 8, 9]
+
+combined_list = list(chain(list1, list2, list3))
+filtered_list = list(compress(list1, list2 == [5, 5, 5]))
+print(combined_list)
+print(filtered_list)
+
+INSIGHTS AND NOTES
+
+Be careful when using chain function on empty lists because it would produce an empty result. Also, the behavior of compress function is not what you might expect when both iterators contains non-matching items, because it will ignore all of them. It would behave the same even when one iterator has all matching items, as long as the other one has some non-matching items.
+
+TOMORROW'S GOAL
+
+I plan to explore the use of itertools.groupby function to create data grouping pipelines and to implement more advanced data manipulation tasks using these iterator tools.
+
+========================================
+  END OF NOTE
+========================================
