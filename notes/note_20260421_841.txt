@@ -1,0 +1,37 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 21 April 2026
+  Day    : Tuesday
+  Topic  : scikit-learn or machine learning concepts 
+========================================
+
+DATE: 21 April 2026
+
+TOPIC: scikit-learn or Machine Learning Concepts
+
+WHAT I LEARNED TODAY
+today i dove into the concept of model training and evaluation, specifically how it works with scikit-learn. in scikit-learn, training a model is the process of finding the best parameters and weights for a given machine learning algorithm so it can make accurate predictions on new unseen data. evaluation is where the trained model gets put to the test, where we use metrics and techniques like cross-validation and accuracy scoring to judge the model's performance on a test dataset. this process helps to identify areas for improvement, like overfitting and underfitting.
+
+KEY CONCEPT
+in scikit-learn, models are typically trained using the train_test_split function, which splits our dataset into training and test sets. the goal is then to find the best combination of parameters that minimizes the error between our model's predictions and the true values in our test dataset. model evaluation is where we use metrics like mean squared error (mse) and r-squared to quantify the model's performance on the test set. another key concept is overfitting, where our model fits the training data too closely and fails to generalize to new, unseen data.
+
+CODE EXAMPLE
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+X, y = load_diabetes()
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+model = LinearRegression()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+mse = mean_squared_error(y_test, y_pred)
+
+INSIGHTS AND NOTES
+one of the key gotchas in machine learning is overfitting, which is why it's essential to have a good balance between training a model on enough data and avoiding overfitting. another insight is that model evaluation is a continuous process, where we often iterate between training and evaluating models to find the best combination of parameters.
+
+TOMORROW'S GOAL
+tomorrow i want to explore how to use pipelines in scikit-learn, which are a powerful tool for combining multiple machine learning steps and workflows into a single, reusable function. this will help me streamline my model-building process and simplify the code for my projects.
+
+========================================
+  END OF NOTE
+========================================
