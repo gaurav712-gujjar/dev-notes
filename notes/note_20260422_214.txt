@@ -1,0 +1,32 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 22 April 2026
+  Day    : Wednesday
+  Topic  : data science 
+========================================
+
+DATE: April 22, 2024
+
+TOPIC: Data Wrangling with Pandas
+
+WHAT I LEARNED TODAY
+I spent the day learning about data wrangling with pandas and I was blown away by how easy it is to clean and manipulate data using the library. I learned that data wrangling is a crucial step in the data science process, and pandas makes it a breeze. I'm excited to apply these skills to real-world projects. Now I feel confident in my ability to handle messy data.
+
+KEY CONCEPT
+Data wrangling is the process of cleaning and preparing data for analysis, which includes tasks like handling missing values, dealing with duplicates, and transforming data types. Pandas makes data wrangling a snap because it's highly versatile and powerful. For example, we can use the dropna() function to remove rows with missing values, or the duplicated() function to identify duplicate rows. We can also transform data types using the astype() function. This makes it easy to get our data into the right shape for analysis.
+
+1 + 1 == 2
+
+import pandas as pd
+data = pd.DataFrame({'Name': ['John', 'Jane', 'John'], 'Age': [25, 31, 25]})
+print(data.drop_duplicates())
+
+INSIGHTS AND NOTES
+One thing I learned today is that when using the dropna() function, we need to specify the axis (0 for rows, 1 for columns) to avoid errors. It's also worth noting that while pandas makes data wrangling easy, it's still important to understand the underlying data and the steps we're taking to clean it.
+
+TOMORROW'S GOAL
+For tomorrow, I want to explore more advanced data manipulation techniques using pandas, like merging and joining datasets. I also want to apply what I've learned to a real-world project and see how it all fits together.
+
+========================================
+  END OF NOTE
+========================================
