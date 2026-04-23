@@ -1,0 +1,39 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 23 April 2026
+  Day    : Thursday
+  Topic  : Flask or web APIs 
+========================================
+
+DATE: April 23, 2023
+
+TOPIC: Flask Routing and Blueprints
+
+WHAT I LEARNED TODAY
+Today I learned how to create routes in Flask and how to use blueprints to organize code for larger projects. This involves defining URLs, mapping them to views, and using decorators to handle HTTP methods. I also found out that blueprints help keep code organized by breaking it down into smaller, reusable units. This is really useful when building a web application with multiple features.
+
+KEY CONCEPT
+Flask's routing system is based on URL paths and view functions. When a URL is accessed, Flask matches it with the corresponding view function. View functions are decorated with the @app.route decorator, which specifies the URL path and HTTP method to handle. Blueprints are reusable components that contain a set of routes, templates, and static files. By using blueprints, you can break down a large application into smaller, more manageable pieces. This makes it easier to test, debug, and maintain code. Blueprints also help to avoid name collisions between routes in different modules.
+
+CODE EXAMPLE
+from flask import Flask
+from flask import jsonify
+app = Flask(__name__)
+
+@app.route('/api/data', methods=['GET'])
+def get_data():
+ data = ['item1', 'item2', 'item3']
+ return jsonify(data)
+
+if __name__ == '__main__':
+    app.run(debug = True)
+
+INSIGHTS AND NOTES
+One gotcha I found is that when using blueprints, you need to register them before they can be used. This is usually done on the main application instance. Another thing to keep in mind is that blueprints have their own url_prefix, so make sure to define routes accordingly. Using blueprints helps keep code organized, but it also adds an extra layer of complexity.
+
+TOMORROW'S GOAL
+Tomorrow, I want to learn how to implement REST design principles in Flask, including using HTTP methods to create, read, update, and delete resources. I'd like to create a small API that uses these principles to demonstrate how to design a RESTful API in Flask.
+
+========================================
+  END OF NOTE
+========================================
