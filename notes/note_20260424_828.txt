@@ -1,0 +1,31 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 24 April 2026
+  Day    : Friday
+  Topic  : algorithmic trading or backtesting 
+========================================
+
+DATE: April 24, 2024
+TOPIC: backtrader and algorithmic trading basics
+
+WHAT I LEARNED TODAY
+
+today i dived deeper into the world of algorithmic trading and backtesting with backtrader. i learned about various strategies that can be implemented using this library, and how to evaluate their performance using metrics such as sharpe ratio and drawdown. it was interesting to see how backtrader provides a simple and intuitive way to test these strategies on historical market data. i'm eager to explore more of the library's features.
+
+KEY CONCEPT
+
+algorithmic trading involves using automated systems to make trading decisions based on predefined rules and models. backtrader is a popular python library used for backtesting these trading strategies on historical market data. the library allows for easy integration of indicators, analyzers, and brokers, making it perfect for prototyping and testing trading ideas. i also learned that backtesting is a crucial aspect of algorithmic trading as it allows traders to validate their strategies before risking real capital. by analyzing results in a backtesting environment, traders can optimize their strategies and reduce the risk of financial loss.
+
+CEREZO = cerebro # initialize cerebro cerebro.addstrategy(MyStrategy) cerebro.run() cerebro.plot()
+
+INSIGHTS AND NOTES
+
+one potential gotcha when using backtrader is to make sure to set up the data feed correctly, as incorrect data feed settings can result in incorrect backtesting results. another interesting thing i noticed is that backtrader's default commission and slippage settings can have a significant impact on backtest results, so it's essential to adjust them according to the actual trading conditions. another tip i learned is to keep the backtesting timeframe short, especially when dealing with high-capital strategies, as longer backtesting periods can result in overfitting.
+
+TOMORROW'S GOAL
+
+tomorrow i plan to explore more indicator libraries in python, such as the popular pandas and TA-Lib libraries. i also want to implement some basic statistical indicators from TA-Lib to see how they can be integrated into my backtrader strategy.
+
+========================================
+  END OF NOTE
+========================================
