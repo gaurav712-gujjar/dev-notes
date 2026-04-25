@@ -1,0 +1,51 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 25 April 2026
+  Day    : Saturday
+  Topic  : ML deployment or MLOps 
+========================================
+
+DATE: April 25, 2026
+
+TOPIC: MLOPS - CONTAINERIZATION USING DOCKER FOR MODEL SERVING
+
+WHAT I LEARNED TODAY
+
+Today I dove into how we can use Docker to containerize our machine learning models for deployment on various platforms. This approach provides us with a standardized and reliable way of serving our models, regardless of the underlying infrastructure. It also allows us to decouple the model development process from the deployment process. Plus, it gives us more control over our model's environment, making it easier to reproduce and predict model behavior. 
+
+KEY CONCEPT
+
+Containerization using Docker works by bundling our model, its dependencies, and the necessary runtime environment into a single container. This container can then be run on any platform that supports Docker, allowing us to easily deploy our model on multiple environments. Docker containers are essentially isolated from the host system, so they don't pollute the host environment with their dependencies. Moreover, containers are lightweight, so they can be started and stopped quickly, which makes it easy to scale our model serving platform. This also ensures that our model is always running in the same environment, regardless of the underlying infrastructure.
+
+CODE EXAMPLE
+FROM python:3.9-slim
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
+COPY . .
+
+CMD ["python", "app.py"]
+
+EXPOSE 8000
+
+RUN pip install tensorflow
+
+RUN pip install flask
+
+RUN pip install numpy
+
+RUN pip install pandas
+
+INSIGHTS AND NOTES
+
+One thing to keep in mind when using Docker for model serving is that it can add significant overhead to our deployment process. We need to make sure that our container builds are properly optimized for performance, so it doesn't slow down our deployment process. Additionally, we might need to modify our container's configuration to accommodate our specific model requirements.
+
+TOMORROW'S GOAL
+
+Tomorrow I plan to explore how we can integrate GitLab CI/CD with Docker for automating our model deployment process. I want to learn more about how we can leverage Docker's containerization capabilities to simplify our model deployment and ensure consistency across different environments.
+
+========================================
+  END OF NOTE
+========================================
