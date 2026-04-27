@@ -1,0 +1,30 @@
+========================================
+  DAILY DEV NOTE
+  Date   : 27 April 2026
+  Day    : Monday
+  Topic  : Python 
+========================================
+
+DATE: April 27, 2026
+TOPIC: Python - Using Context Managers with the with Statement
+
+WHAT I LEARNED TODAY
+Today I learned that using context managers with the with statement in Python provides a simple way to manage resources such as files, connections, or locks. This ensures that these resources are properly cleaned up after use, regardless of whether an exception is thrown or not. The context manager is used in conjunction with a block of code inside the with statement, allowing the developer to focus on writing the logic without worrying about resource management. I found this to be a powerful idiom in Python.
+
+KEY CONCEPT
+Context managers in Python are implemented using the context manager protocol, which defines two methods: enter and exit. The enter method is called when the context manager is entered and can be used to initialize the resource, and the exit method is called when the context manager is exited and is responsible for cleaning up the resource. The with statement takes an object that implements the context manager protocol as an argument and uses it to create a runtime context for the execution of the block of code. This context is automatically established when the block of code is executed and is automatically destroyed after execution, ensuring that the resource is properly cleaned up.
+
+    with open('data.txt', 'r') as datafile:
+        data = datafile.read()
+        print(data)
+        # resource will be properly cleaned up even if an exception is thrown
+
+INSIGHTS AND NOTES
+I observed that if an exception is thrown while executing the code block inside the with statement, the exit method of the context manager will still be called to clean up the resource. However, if an exception is thrown while entering the context manager (e.g., when creating the file object), the exit method will not be called because the exception is not propagated due to the try statement used by the with statement.
+
+TOMORROW'S GOAL
+I plan to explore more advanced topics related to the context manager protocol, such as creating custom context managers and using the context manager with asynchronous code. I also plan to apply this knowledge to build a real-world application that utilizes context managers effectively.
+
+========================================
+  END OF NOTE
+========================================
